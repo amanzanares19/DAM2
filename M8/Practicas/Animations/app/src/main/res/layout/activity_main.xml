@@ -5,7 +5,7 @@
     android:id="@+id/contstraintL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/fondo"
@@ -22,10 +22,49 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="10dp"
-        android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/biciwhite" />
+
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/biciwhite" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/titulo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aladin"
+            android:text="Bcn Bikes"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/subtitulo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/aladin"
+            android:text="Your way of travelling"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/textCenter"
@@ -42,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_weight="0"
+            android:fontFamily="@font/aladin"
             android:text="www.bcnbikes.com"
             android:textAlignment="center"
             android:textColor="@color/white" />
@@ -52,10 +92,65 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/titulo"
             android:layout_weight="1"
+            android:fontFamily="@font/aladin"
             android:text="Make lifes easy"
             android:textAlignment="center"
             android:textColor="@color/white" />
 
     </RelativeLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:columnCount="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rowCount="5">
+
+        <ImageView
+            android:id="@+id/bici1"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+
+
+            app:layout_columnWeight="1"
+            app:layout_gravity="center"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/bikeslogos1" />
+
+        <ImageView
+            android:id="@+id/bici2"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+
+            app:layout_columnWeight="1"
+            app:layout_gravity="center"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/bikeslogos2" />
+
+        <ImageView
+            android:id="@+id/bici3"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+
+
+            app:layout_columnWeight="1"
+            app:layout_gravity="center"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/bikeslogos3" />
+
+        <ImageView
+            android:id="@+id/bici4"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+
+            app:layout_columnWeight="1"
+            app:layout_gravity="center"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/bikeslogos4" />
+
+
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
