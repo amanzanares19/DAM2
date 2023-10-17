@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
@@ -25,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
     //Spinner
     private Spinner spinnerCursos;
+
+    //DAVIDBOWIE
+    private ArrayList<DavidBowie> mDavidBowie;
+    private DavidBowieAdapter mDBAdapter;
+
+    private Spinner spinnerClass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,5 +89,36 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        //Hook spinnerClass
+        initList();
+        spinnerClass = (Spinner) findViewById(R.id.spinnerClass);
+
+        mDBAdapter = new DavidBowieAdapter(this, mDavidBowie);
+        spinnerClass.setAdapter(mDBAdapter);
+        spinnerClass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                DavidBowie davidBowie = (DavidBowie) adapterView.getItemAtPosition(i);
+                Toast.makeText(MainActivity.this, "Selected: " + davidBowie.getCoverName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(MainActivity.this, "Nothing selected", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+    private void initList() {
+        mDavidBowie = new ArrayList<>();
+        mDavidBowie.add(new DavidBowie("Stardust", R.drawable.db8));
+        mDavidBowie.add(new DavidBowie("Aladdin Sane", R.drawable.db6));
+        mDavidBowie.add(new DavidBowie("Low", R.drawable.db7));
+        mDavidBowie.add(new DavidBowie("David Bowie", R.drawable.db3));
     }
 }
