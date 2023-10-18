@@ -41,7 +41,7 @@ public class DavidBowieAdapter extends ArrayAdapter<DavidBowie> {
 
         //hooks
         ImageView imgView = convertView.findViewById(R.id.db6);
-        TextView textView = convertView.findViewById(R.id.textDb6);
+        TextView textView = convertView.findViewById(R.id.textDb6x);
 
         DavidBowie item = getItem(position);
 

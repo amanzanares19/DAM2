@@ -16,14 +16,12 @@
         app:srcCompat="@drawable/db8" />
 
     <TextView
-        android:id="@+id/textDb6"
+        android:id="@+id/textDb6x"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="203dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/db6"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/db6"
         app:layout_constraintTop_toTopOf="@+id/db6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
