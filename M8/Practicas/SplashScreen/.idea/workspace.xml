@@ -10,12 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0f36124-4868-4d9e-9487-67e11b7d6648" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../SplashScreen/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SplashScreen/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SplashScreen/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SplashScreen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../M08Ejercicios/Calendari/app/src/main/java/com/example/calendar/DavidBowieAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../M08Ejercicios/Calendari/app/src/main/java/com/example/calendar/DavidBowieAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../M08Ejercicios/Calendari/app/src/main/res/layout/spinner_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../M08Ejercicios/Calendari/app/src/main/res/layout/spinner_row.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/splashscreen/DashboardActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/splashscreen/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/splashscreen/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +27,18 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2WwQ3gYcyJxvUWOHyyh56HqUSkj" />
   <component name="ProjectLevelVcsManager">
@@ -44,7 +53,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true"
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/home/users/inf/wiam2/a231501am/DAM2/DAM2/M8/Practicas/Animations",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RunManager">
