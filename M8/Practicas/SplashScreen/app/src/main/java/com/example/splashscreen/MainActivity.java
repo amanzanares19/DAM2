@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                //Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
 
                 //Create Pair and transition animation between activities
             }
