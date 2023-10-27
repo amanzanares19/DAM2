@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         but7 = findViewById(R.id.radioButton7);
         but8 = findViewById(R.id.radioButton8);
         but9 = findViewById(R.id.radioButton9);
+        radioGroup1 = findViewById(R.id.radioGroup);
+        radioGroup2 = findViewById(R.id.radioGroup2);
+        radioGroup3 = findViewById(R.id.radioGroup3);
         checker = findViewById(R.id.button);
         
         //Show pressed buttons
@@ -57,15 +60,16 @@ public class MainActivity extends AppCompatActivity {
                 RadioButton radioButton2;
                 radioButton2 = findViewById(radioSelected2);
 
-                String selection = radioButton.getText() + " " + radioButton2.getText() + " ";
+                String selection = radioButton.getText() + "\n" + radioButton2.getText();
 
-                if (switchButton.isChecked()) {
+                if (switchButton.isChecked() && radioGroup3.getCheckedRadioButtonId() != -1) {
                     int radioSelected3 = radioGroup3.getCheckedRadioButtonId();
                     RadioButton radioButton3;
                     radioButton3 = findViewById(radioSelected3);
-                    selection += radioButton3.getText();
+                    selection += " " + radioButton3.getText();
                 } else {
-                    selection += "Disabled";
+                    selection += " Disabled";
+                    radioGroup3.clearCheck();
                 }
                 Toast.makeText(MainActivity.this, selection, Toast.LENGTH_SHORT).show();
             }
@@ -80,7 +84,13 @@ public class MainActivity extends AppCompatActivity {
         but8.setEnabled(false);
         but9.setEnabled(false);
 
+        //Función para mostrar radio button seleccionado al presionarse
+        showButtonSelected(radioGroup1);
+        showButtonSelected(radioGroup2);
+        showButtonSelected(radioGroup3);
 
+
+        //habilitar o deshabilitar radiobuttons mediante el switch
         if (switchButton != null) {
             switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -103,6 +113,20 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-
     }
+
+    private void showButtonSelected(RadioGroup rg) {
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //En caso de que haya radio button seleccionado mostrár opción elegida
+                if (group.getCheckedRadioButtonId() != -1){
+                    int radioSelected = group.getCheckedRadioButtonId();
+                    RadioButton r = findViewById(radioSelected);
+                    Toast.makeText(MainActivity.this, r.getText(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 }
