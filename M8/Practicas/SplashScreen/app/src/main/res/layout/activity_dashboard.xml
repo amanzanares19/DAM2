@@ -9,8 +9,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center|top"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,18 +58,21 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="50dp"
+            app:boxStrokeColor="#03A9F4">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email" />
+                android:hint="Email"
+                android:inputType="text|textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#03A9F4">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -85,5 +91,25 @@
             android:text="Forgot password?"
             android:textAlignment="viewEnd"
             android:textColor="#03A9F4" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00BCD4"
+            android:text="LOGIN"
+            android:textColor="#FFFFFF"
+            app:iconTint="#2196F3"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="NEW USER SIGN UP"
+            android:textAlignment="center"
+            android:textColor="#2196F3" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
