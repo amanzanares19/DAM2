@@ -40,6 +40,7 @@
             app:boxStrokeColor="#03A9F4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nom"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:hint="Name"
@@ -53,6 +54,7 @@
             app:boxStrokeColor="#03A9F4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwd"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:hint="Password"
@@ -69,6 +71,7 @@
             app:boxStrokeColor="#03A9F4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:hint="Email"
@@ -84,32 +87,26 @@
             app:placeholderText="Birthdate">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/birthdate"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:clickable="true"
+                android:focusable="false"
                 android:hint="Birthdate"
                 android:inputType="datetime|date"
                 android:textColorHint="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <Spinner
+            android:id="@+id/spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxStrokeColor="#03A9F4">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Email"
-                android:inputType="text|textEmailAddress" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="50dp" />
 
         <Switch
             android:id="@+id/newsletter"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Receive newsletter?" />
 
         <Button

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SplashScreen</string>
+    <string-array name="bikes">
+        <item>Bici 1</item>
+        <item>Bici 2</item>
+        <item>Bici 3</item>
+        <item>Bici 4</item>
+        <item>Bici 5</item>
+        <item>Bici 6</item>
+    </string-array>
 </resources>
