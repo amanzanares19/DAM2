@@ -1,17 +1,21 @@
 package com.example.splashscreen;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Pair;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
 
-    public static final int SPLASH_SCREEN = 2000;
+    public static final int SPLASH_SCREEN = 4000;
 
     private ImageView logo;
     private TextView title;
@@ -41,12 +45,17 @@ public class MainActivity extends AppCompatActivity {
         subtitle.animate().translationY(300).setDuration(2200).setStartDelay(500)
                 .alpha(1.0f).setDuration(2100).setStartDelay(1000).rotation(-360);
 
-        Runnable r = new Runnable() {
-            @Override
-            public void run() {
-                //Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+        Runnable r = () -> {
+            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
 
-                //Create Pair and transition animation between activities
+            //Create Pair and transition animation between activities
+            Pair[] pairs = new Pair[2];
+            pairs[0] = new Pair<View, String>(logo, logo.getTransitionName());
+            pairs[1] = new Pair<View, String>(title, title.getTransitionName());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this,
+                        pairs);
+                startActivity(intent, options.toBundle());
             }
         };
 
