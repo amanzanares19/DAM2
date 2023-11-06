@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         textCenter.animate().setDuration(800).translationX(-360).setStartDelay(500);
         textCenter.animate().alpha(0);
 
-        logo.animate().setDuration(900).translationX(-300).setStartDelay(500);
+        logo.animate().setDuration(1200).translationX(-1000).setStartDelay(500);
 
         //Animation text superior
         linearL.setAlpha(0);
