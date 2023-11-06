@@ -12,18 +12,26 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class SignupActivity extends AppCompatActivity {
 
     private TextView login;
-
+    private LinearLayout signupLayout;
     private DatePickerDialog picker;
     private EditText textDate;
+    private Spinner spinnerClass;
+    private ArrayList<Bike> bikes;
+    private BiciAdapter biciAdapter;
 
 
     @Override
@@ -34,6 +42,16 @@ public class SignupActivity extends AppCompatActivity {
         //hooks
         login = findViewById(R.id.login);
         textDate = (EditText) findViewById(R.id.birthdate);
+        spinnerClass = findViewById(R.id.spinner);
+        signupLayout = findViewById(R.id.signupLayout);
+
+        float x = signupLayout.getScaleX();
+        float y = signupLayout.getScaleY();
+
+        signupLayout.setScaleX(0);
+        signupLayout.setScaleY(0);
+
+        signupLayout.animate().scaleX(x).scaleY(y).setDuration(1000);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +109,36 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
+        //Spinner class
+        bikes = new ArrayList<>();
+        bikes.add(new Bike(R.drawable.bike01, "Bici01"));
+        bikes.add(new Bike(R.drawable.bike02, "Bici02"));
+        bikes.add(new Bike(R.drawable.bike03, "Bici03"));
+        bikes.add(new Bike(R.drawable.bike04, "Bici04"));
+        bikes.add(new Bike(R.drawable.bike06, "Bici06"));
+        bikes.add(new Bike(R.drawable.bike08, "Bici08"));
+
+        biciAdapter = new BiciAdapter(this, bikes);
+        spinnerClass.setAdapter(biciAdapter);
+
+        spinnerClass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Bike selectedItem = (Bike) parent.getItemAtPosition(position);
+                String selectedBike = selectedItem.getTextoBici();
+                Toast.makeText(SignupActivity.this, "Bici seleccionada: " + selectedBike,
+                        Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+                //Toast
+                Toast.makeText(SignupActivity.this, "Nothing selected", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

@@ -10,11 +10,15 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ForgotpasswordActivity extends AppCompatActivity {
 
     private TextView signup;
+
+    private LinearLayout passwdLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +26,14 @@ public class ForgotpasswordActivity extends AppCompatActivity {
 
         //hooks
         signup = findViewById(R.id.login);
+        passwdLayout = findViewById(R.id.passwdLayout);
+        float x = passwdLayout.getScaleX();
+        float y = passwdLayout.getScaleY();
+
+        passwdLayout.setScaleX(0);
+        passwdLayout.setScaleY(0);
+
+        passwdLayout.animate().scaleX(x).scaleY(y).setDuration(1000);
 
 
         signup.setOnClickListener(new View.OnClickListener() {

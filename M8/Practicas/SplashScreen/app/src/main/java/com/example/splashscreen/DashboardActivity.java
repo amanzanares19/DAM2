@@ -9,6 +9,7 @@ import android.os.Looper;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -16,6 +17,7 @@ public class DashboardActivity extends AppCompatActivity {
     public static final int SPLASH_SCREEN = 1000;
     private TextView signup;
     private TextView forgotPass;
+    private LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,16 @@ public class DashboardActivity extends AppCompatActivity {
         //hooks
         signup = findViewById(R.id.login);
         forgotPass = findViewById(R.id.forgotPass);
+        layout = findViewById(R.id.passwdLayout);
+
+        float x = layout.getScaleX();
+        float y = layout.getScaleY();
+
+        layout.setScaleX(0);
+        layout.setScaleY(0);
+
+        layout.animate().scaleX(x).scaleY(y).setDuration(1000);
+
 
         signup.setOnClickListener(v -> {
 
