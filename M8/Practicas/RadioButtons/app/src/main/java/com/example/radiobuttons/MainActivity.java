@@ -1,7 +1,5 @@
 package com.example.radiobuttons;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +8,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton but9;
 
     private Switch switchButton;
-    
+
     private Button checker;
 
     @Override
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         radioGroup2 = findViewById(R.id.radioGroup2);
         radioGroup3 = findViewById(R.id.radioGroup3);
         checker = findViewById(R.id.button);
-        
+
         //Show pressed buttons
         checker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +108,13 @@ public class MainActivity extends AppCompatActivity {
                         but9.setEnabled(false);
                         but9.setChecked(false);
                     }
+//                    Or using a for (just a template)
+                    /*
+                    * for (int i = 0; i < 4; i++) {
+                         radioGroup3.getChildAt(i).setClickable(true);
+                         radioGroup3.getChildAt(i).setEnabled(true);
+                      }
+                    * */
 
                 }
             });
@@ -120,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 //En caso de que haya radio button seleccionado mostrár opción elegida
-                if (group.getCheckedRadioButtonId() != -1){
+                if (group.getCheckedRadioButtonId() != -1) {
                     int radioSelected = group.getCheckedRadioButtonId();
                     RadioButton r = findViewById(radioSelected);
                     Toast.makeText(MainActivity.this, r.getText(), Toast.LENGTH_SHORT).show();

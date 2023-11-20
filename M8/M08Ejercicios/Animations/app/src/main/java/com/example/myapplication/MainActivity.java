@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
         //Darle la vuelta a una imagen mediante código V2
-        img.setOnClickListener(new View.OnClickListener() {
+        /*img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -102,10 +102,9 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
 
-        /*
-        Darle la vuelta a una imagen mediante ficheros xml
+//        Darle la vuelta a una imagen mediante ficheros xml
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-        });*/
+        });
 
     }
 }
