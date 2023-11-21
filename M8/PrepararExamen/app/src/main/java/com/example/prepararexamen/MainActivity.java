@@ -6,6 +6,9 @@ import android.animation.AnimatorSet;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +18,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -45,8 +50,29 @@ public class MainActivity extends AppCompatActivity {
     private Button serializable;
 //    parcelable
     private Button parcelable;
+    private Toolbar toolbar;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.android) {
+            Toast.makeText(this, "android", Toast.LENGTH_SHORT).show();
+        }
+        if (id == R.id.fps) {
+            Toast.makeText(this, "fps", Toast.LENGTH_SHORT).show();
+        }
 
 
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         spinnerClass = findViewById(R.id.spinnerClass);
         serializable = findViewById(R.id.serializable);
         parcelable = findViewById(R.id.parcelable);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         textDate.setOnClickListener(new View.OnClickListener() {
             @Override
