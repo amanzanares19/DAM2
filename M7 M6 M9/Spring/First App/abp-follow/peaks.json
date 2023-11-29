@@ -1,0 +1,73 @@
+[
+  {
+    "peaks":
+    [
+
+      {
+
+        "peak": "Agulla Inferior del Clot de la Hount",
+        "height": 3043,
+        "category": "secundari",
+        "zone": "Vinyamala"
+
+      },
+
+      {
+
+        "peak": "Agulla SW de Cerbillona ",
+        "height": 3051,
+        "category": "secundari",
+        "zone": "Vinyamala"
+
+      },
+
+      {
+
+        "peak": "Cerbillona ",
+        "height": 3247,
+        "category": "principal",
+        "zone": "Vinyamala"
+
+      },
+
+      {
+
+        "peak": "Clot de la Hount ",
+        "height": 3289,
+        "category": "principal",
+        "zone": "Vinyamala"
+
+      },
+
+      {
+
+        "peak": "Espatlla Chausenque",
+        "height": 3154,
+        "category": "secundari",
+        "zone": "Vinyamala"
+
+      },
+
+      {
+
+        "peak": "Pic Central",
+        "height": 3235,
+        "category": "secundari",
+        "zone": "Vinyamala"
+
+      },
+
+      {
+
+        "peak": "Pic du Milieu",
+        "height": 3452,
+        "category": "principal",
+        "other": ["Torre George", "Cadier"],
+        "zone": "Vinyamala"
+
+      }
+
+
+    ]
+  }
+]
