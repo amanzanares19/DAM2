@@ -49,11 +49,25 @@ public class PeakController {
     }
 
     @PutMapping("/peaks")
-    private ResponseEntity putPeaksByPeakName(@RequestBody Peak peak, @RequestParam("name") String name) {
+    private ResponseEntity putPeaksByPeakName(@RequestBody Peak peak,
+                                              @RequestParam("name") String name) {
 
         return this.peakService.putPeaks(peak, name);
 
     }
 
+    @DeleteMapping("/peaks")
+    private ResponseEntity deletePeaksByPeakName(@RequestParam("name") String name) {
+
+        return this.peakService.deletePeaks(name);
+
+    }
+
+    @DeleteMapping("/peaks/{name}")
+    private ResponseEntity deletePeaks(@PathVariable("name") String name){
+
+        return this.peakService.deletePeaks(name);
+
+    }
 
 }
