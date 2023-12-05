@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class PeakController {
@@ -28,7 +28,8 @@ public class PeakController {
 
     }
     @PostMapping("/peaks/all")
-    private ResponseEntity postPeaksAll(@RequestBody ArrayList<Peak> peaks) {
+    private ResponseEntity postPeaksAll(@RequestBody List<Peak> peaks) {
+
 
         return this.peakService.postPeaksAll(peaks);
 

@@ -1,17 +1,14 @@
 package abp.abpfollow.service;
 
+import abp.abpfollow.dao.OtherRepository;
 import abp.abpfollow.dao.PeakRepository;
-import abp.abpfollow.modelo.Other;
 import abp.abpfollow.modelo.Peak;
 import abp.abpfollow.modelo.PeaksRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,6 +16,8 @@ public class PeakService {
 
     @Autowired
     private PeakRepository peakR;
+    @Autowired
+    private OtherRepository otherR;
 
     public ResponseEntity getPeaks() {
 
@@ -69,9 +68,16 @@ public class PeakService {
 
     }*/
 
-    public ResponseEntity postPeaksAll(ArrayList<Peak> peaks) {
+    public ResponseEntity postPeaksAll(List<Peak> peaks) {
 
-        this.peakR.saveAll(peaks);
+        this.peakR.saveAllAndFlush(peaks);
+        for (Peak p :
+                peaks) {
+            if (p.getOther() != null) {
+                this.otherR.saveAll(p.getOther());
+            }
+        }
+
         return ResponseEntity.status(HttpStatus.CREATED).body(peaks);
 
     }

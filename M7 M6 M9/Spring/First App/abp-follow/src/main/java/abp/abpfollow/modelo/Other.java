@@ -15,4 +15,5 @@ public class Other {
     @Column
     private String other;
 
+
 }

@@ -3,9 +3,10 @@ package abp.abpfollow.modelo;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class PeaksRequest {
 
-    private ArrayList<Peak> peaks;
+    private List<Peak> peaks;
 }
