@@ -67,11 +67,37 @@ for i in list2:
     if not i in list1:
         list3.append(i)      
 print(list3)
-"""        
+
+elements in second list but not in first V2 WITHOUT in keyword
 list1 = ["hola", "que", "tal", 2, 3, 5]
 list2 = ["hola", "no", "pasa", 2, 3, 8]
 list3 = []
-for i in list1:
-    list3.append(i)          
-    list3.append(list2[list1.index(i)])
+for i in list2:
+    count = 1
+    for j in list1:
+        if j != i:
+            if len(list1) == count:
+                list3.append(i)
+                count = 0
+        else:
+            break
+        count += 1            
+            
 print(list3)
+   
+
+all elements 
+list1 = ["hola", "que", "tal", 2, 3, 5]
+list2 = ["hola", "no", "pasa", 2, 3, 8]
+list3 = []
+
+pos = 0
+while pos < (len(list1) + len(list2)):
+    
+    if pos < len(list1):
+        list3.append(list1[pos])          
+    if pos < len(list1):
+        list3.append(list2[pos])
+    pos += 1
+    
+print(list3)"""
