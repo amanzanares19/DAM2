@@ -1,11 +1,50 @@
-import {StyleSheet,
-  Button,
-  View,
-  Alert,
-  TextInput, Image} from 'react-native';
-import React, { useEffect } from 'react';
-import { flex } from './src/styles/helloworld';
-import { commons, imageStyle, loginStyles } from './src/styles/commons';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+
+export const Login = ({ navigation }) => {
+  return (
+      <View>
+          <Text>Login</Text>
+          <Button
+              title="Accedir-hi"
+              onPress={() => navigation.navigate('UserData')}
+          />
+      </View>
+  );
+}
+
+export const UserData = ({ navigation }) => {
+  return (
+      <View>
+          <Text>UserData</Text>
+          <Button
+              title="Sortir"
+              onPress={() => navigation.navigate('Login')}
+          />
+      </View>
+  );
+}
+
+
+
+export default function App() {
+  const Stack = createNativeStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="UserData" component={UserScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
+
+/* import {View} from 'react-native';
+import React from 'react';
+import TableShow from './src/view/components/Tableshow'; */
 
 /* Version 1
 export default function App() {
@@ -94,7 +133,7 @@ export default function App() {
   );
 }*/
 
-export default function App() {
+/* export default function App() {
 
   const [text, onChangeText] = React.useState('');
   const [text2, onChangeText2] = React.useState('');
@@ -122,4 +161,18 @@ export default function App() {
         />
     </View>
   );
-}
+} */
+
+/* Listas
+export default function App() {
+
+  return (
+
+    <View>
+
+      <TableShow />
+
+    </View>
+
+  );
+} */
