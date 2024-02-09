@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import {Button, Text, View} from "react-native";
 
 export const Login = ({ navigation }) => {
   return (
@@ -29,15 +30,18 @@ export const UserData = ({ navigation }) => {
 
 
 export default function App() {
+
   const Stack = createNativeStackNavigator();
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="UserData" component={UserScreen} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="UserData" component={UserData} />
       </Stack.Navigator>
     </NavigationContainer>
   );
+
 }
 
 
