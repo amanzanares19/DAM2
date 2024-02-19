@@ -22,6 +22,10 @@ class Menu:
         print("\t1. Cercar client per identificador" + 
               "\n\t2. Cercar client per nom" + "\n\t3. Cercar client per cognom" + 
               "\n\t4. Llistar tots els clients" + "\n\t3. Enrere")
+    
+        option = Menu.getOption()
+        if option == 3:
+            self.mostra_menu_consulta()
         
         
     
@@ -34,8 +38,7 @@ class Menu:
             
             
             
-
-
+            
 
 if __name__ == '__main__':
     menu = Menu()
