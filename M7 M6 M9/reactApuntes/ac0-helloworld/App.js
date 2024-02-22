@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {Button, Text, View} from "react-native";
+import Conexion from './src/view/components/Conexion';
 
 export const Login = ({ navigation }) => {
   return (
@@ -35,9 +36,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Conexion">
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="UserData" component={UserData} />
+        <Stack.Screen name="Conexion" component={Conexion} />
       </Stack.Navigator>
     </NavigationContainer>
   );
