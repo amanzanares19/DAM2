@@ -3,18 +3,20 @@
 export const GetUsers = async () => {
 
 
-  const apiUrl = "http://localhost:8080"
+  const apiUrl = "http://10.200.243.221:8080";
 
   try {
-    const response = await fetch(`${apiUrl}/users/`, {
+    const response = await fetch(`${apiUrl}/users`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'            
-        }
+        },
+
     });
     if (response.ok) {
-        const jsonData = await response.json();
-        return jsonData;
+        const jsonData = await response.json();        
+        console.log(jsonData);
+        
     } else {
         alert(await response.text());
     }

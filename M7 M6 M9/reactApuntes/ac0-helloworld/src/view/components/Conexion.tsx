@@ -4,14 +4,12 @@ import { GetUsers } from "../../dao/GetUsers";
 
 export default function Conexion({navigation}) {
 
-    const [showModal, setShowModal] = useState({
-        username: "1",
-        email: "2",
-        password: "3"
-    });
+    const [showUsers, setShowUser] = useState(false);
 
     async function checkData() {
-        setShowModal(await GetUsers());                
+        /* setShowModal(await GetUsers()); */
+        await GetUsers();
+                      
     }
 
     useEffect(() => {
@@ -21,9 +19,7 @@ export default function Conexion({navigation}) {
     return (
         
         <View>            
-            <Text>{showModal?.username}</Text>
-            <Text>{showModal?.email}</Text>
-            <Text>{showModal?.password}</Text>
+            
         </View>
 
     )
