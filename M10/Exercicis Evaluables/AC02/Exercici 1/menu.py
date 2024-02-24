@@ -1,4 +1,4 @@
-import client, empresa
+import empresa
 
 class Menu:
     
@@ -10,9 +10,7 @@ class Menu:
     def selectClientOption(self, opt, empresa):
         
         if opt == 1:
-            
-            #Get fields to create client
-            id_client = empresa.id_client
+                       
             name = input("Nombre: ")
             surname = input("Cognom: ")
             tel = input("Telefon: ")
@@ -20,8 +18,8 @@ class Menu:
             city = input("Ciutat: ")        
             
             #Creamos cliente
-            empresa.afegir_client(id_client, name, surname, tel, email, city)
-            print("Cliente" + name + " añadido correctamente")                                    
+            empresa.afegir_client(name, surname, tel, email, city)
+            print("Cliente " + name + " añadido correctamente")                                    
         
         if opt == 2:
             

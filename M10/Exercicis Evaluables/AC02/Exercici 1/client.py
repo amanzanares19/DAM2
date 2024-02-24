@@ -31,5 +31,5 @@ class Client:
             raise Exception("Ciudad incorrecto")      
     
     def __str__(self):
-        client = 'Client(ID=', str(self.__getattribute__("id")), ', Nom=' + self.__getattribute__("nom"), ', Cognom=', self.__getattribute__("cognom") , ', Telefon=' + str(self.__getattribute__("telefon")), ', Correu=', self.__getattribute__("correu"), ', Ciutat=', self.__getattribute__("ciutat"),')'
+        client = 'Client(ID=' + str(self.__getattribute__("id")) + ', Nom=' + self.__getattribute__("nom") + ', Cognom=' + self.__getattribute__("cognom") + ', Telefon=' + str(self.__getattribute__("telefon")) + ', Correu=' + self.__getattribute__("correu") + ', Ciutat=' + self.__getattribute__("ciutat") +')'
         return client
