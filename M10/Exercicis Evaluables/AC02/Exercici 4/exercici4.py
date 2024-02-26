@@ -1,3 +1,5 @@
+import sys
+
 def esPalindrom(num):
     """
     Given a number, return true if is palindrome, otherwise false.
@@ -51,8 +53,8 @@ def writeFile(f, palindromos, primos):
     f.write("\nS'han trobat " + str(len(primos)) + " primers: " + str(primos))
 
 #Pedir parámetros
-entrada = input("Nombre del fichero de entrada: ")
-salida = input("Nombre del fichero de salida: ")
+entrada = sys.argv[1]
+salida = sys.argv[2]
 
 fichero = open(entrada, "r")
 

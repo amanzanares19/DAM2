@@ -1,0 +1,2 @@
+S'han trobat 5 palindroms: ['151', '5225', '888', '929', '3']
+S'han trobat 4 primers: ['151', '13', '929', '3']
