@@ -35,21 +35,20 @@ class Menu:
         if opt == 4:
             
             id_client = int(input("Id del client a modificar: "))
-            name = input("Nombre: ")
-            
+                        
             #Modify fields
-            empresa.modificar_client(id_client, name, cognom = input("Cognom: "), telefon = input("Telefon: "), correu = input("Correu: "), ciutat = input("Ciutat: ") )
+            empresa.modificar_client(id_client, nom = input("Nombre: "), cognom = input("Cognom: "), telefon = input("Telefon: "), correu = input("Correu: "), ciutat = input("Ciutat: ") )
         
     def selectConsultaOption(self, opt, empresa):
         if opt == 1:
-            cliente = empresa.cercar_per_id(int(input("ID del cliente: ")))
-            print(cliente.__str__())
+            empresa.cercar_per_id(int(input("ID del cliente: ")))
+
         if opt == 2:
-            cliente = empresa.cercar_per_nom(input("Nombre del cliente: "))
-            print(cliente.__str__())
+            empresa.cercar_per_nom(input("Nombre del cliente: "))
+            
         if opt == 3:
-            cliente = empresa.cercar_per_cognom(input("Apellido del cliente: "))
-            print(cliente.__str__())
+            empresa.cercar_per_cognom(input("Apellido del cliente: "))
+            
         if opt == 4:
             empresa.get_llista_clients()      
         

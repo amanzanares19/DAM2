@@ -10,6 +10,8 @@ class Empresa:
     
     def get_llista_clients(self):
 
+        self.llista_clients = postgres.get_clients()
+
         if not self.llista_clients:
             print("No hay clientes")
         else:        
@@ -30,39 +32,30 @@ class Empresa:
     
     def cercar_per_id(self, client_id):
 
-        row = postgres.search_by_id(client_id)        
-        cliente = client.Client(row[0], row[1], row[2], row[3], row[4], row[5])
+        cliente = postgres.search_by_id(client_id)
         print(cliente.__str__())
+        return cliente
                 
     def cercar_per_nom(self, nom):
                         
-        for c in self.llista_clients:
-            if c.nom == nom:
-                return c
+        cliente = postgres.search_by_name(nom)
+        print(cliente.__str__())
+        return cliente
     
     def cercar_per_cognom(self, cognom):
                         
-        for c in self.llista_clients:
-            if c.cognom == cognom:
-                return c
+        cliente = postgres.search_by_surename(cognom)
+        print(cliente.__str__())
+        return cliente
+
                 
-    def modificar_client(self, id, nom, **params):
+    def modificar_client(self, id, **params):
+                
+        if postgres.update_client(id, params) > 0:
+            print("Cliente modificado")
+        else:
+            print("Error al modificar cliente")
         
-        client = self.cercar_per_id(id)
-        client.__setattr__("nom", nom)
-        print("Nom modificat\n")
-        if "cognom" in params:
-            client.__setattr__("cognom", params["cognom"])
-            print("Cognom modificat\n")
-        if "telefon" in params:
-            client.__setattr__("telefon", params["telefon"])
-            print("telefon modificat\n")
-        if "correu" in params:
-            client.__setattr__("correu", params["correu"])
-            print("Correu modificat\n")
-        if "ciutat" in params:
-            client.__setattr__("ciutat", params["ciutat"])
-            print("Ciutat modificada")
         
         
         
