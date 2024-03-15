@@ -33,12 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void data() {
 
+        String[] meals = {"Jamón", "Queso", "Costilla", "Césped"};
+
         Animal animal = new Animal("https://www.joanseculi.com/images/image01.jpg",
-                "Lion", "Feline", 24);
+                "Lion", "Feline", 24, 2001, meals,
+                "El rey de la selva");
         Animal animal2 = new Animal("https://www.joanseculi.com/images/image02.jpg",
-                "Tiger", "Feline", 20);
+                "Tiger", "Feline", 20, 2002, meals,
+                "El felino más bonito");
         Animal animal3 = new Animal("https://www.joanseculi.com/images/image03.jpg",
-                "Elephant", "Human", 20);
+                "Elephant", "Human", 20, 2004, meals, "El más " +
+                "pesado");
 
         animals.add(animal);
         animals.add(animal2);

@@ -44,4 +44,33 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/textType" />
+
+    <TextView
+        android:id="@+id/meals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textName"
+        tools:layout_editor_absoluteY="38dp" />
+
+    <TextView
+        android:id="@+id/naixement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textType"
+        app:layout_constraintTop_toBottomOf="@+id/meals" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textAge"
+        app:layout_constraintTop_toBottomOf="@+id/naixement" />
 </androidx.constraintlayout.widget.ConstraintLayout>

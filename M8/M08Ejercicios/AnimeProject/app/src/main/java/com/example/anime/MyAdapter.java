@@ -44,6 +44,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.ttype.setText(animals.get(position).getType());
         holder.tname.setText(animals.get(position).getName());
         holder.tage.setText(String.valueOf(animals.get(position).getAge()));
+        holder.tbirthday.setText(String.valueOf(animals.get(position).getBirthdateYear()));
+        holder.tdescription.setText(String.valueOf(animals.get(position).getDescription()));
+        holder.tmeals.setText(String.valueOf(animals.get(position).getMeals()));
+
 
         Picasso.get().load(animals.get(position).getUrlImage())
                 .fit().centerCrop().into(holder.image);
@@ -53,7 +57,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("animal", animals.get(position));
+                intent.putExtra("animal", animals.get(holder.getAdapterPosition()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
@@ -70,7 +75,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private TextView tname;
         private TextView ttype;
         private TextView tage;
-        private ConstraintLayout constraintLayout
+        private TextView tbirthday;
+        private TextView tmeals;
+        private TextView tdescription;
+        private ConstraintLayout constraintLayout;
 
 
         public MyViewHolder(@NonNull View itemView){
@@ -81,6 +89,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             tname = itemView.findViewById(R.id.textName);
             tage = itemView.findViewById(R.id.textAge);
             ttype = itemView.findViewById(R.id.textType);
+            tbirthday = itemView.findViewById(R.id.naixement);
+            tmeals = itemView.findViewById(R.id.meals);
+            tdescription = itemView.findViewById(R.id.description);
 
             constraintLayout = itemView.findViewById(R.id.constraintLayout);
 
