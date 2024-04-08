@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+          <record id="pacient1" model="hospitalams_pacient">
+            <field name="nom">alex</field>
+            <field name="cognom">Suarez</field>
+            <field name="dni">29436507Q</field>
+            <field name="genere">1</field>
+            <field name="data_naixement">2003-11-03</field>
+            <field name="nacionalitat" ref="base.es"/>
+            <field name="ingres">True</field>
+            <field name="data_ingres">2023-04-09</field>
+            <field name="informacio">Almune de EDT</field>
+            <field name="asseguranca">Cap</field>
+          </record>
+
+          <record id="pacient2" model="hospitalams_pacient">
+            <field name="nom">sara</field>
+            <field name="cognom">zambrano</field>
+            <field name="dni">29436507F</field>
+            <field name="genere">2</field>
+            <field name="data_naixement">2003-11-04</field>
+            <field name="nacionalitat" ref="base.ec"/>
+            <field name="ingres">True</field>
+            <field name="data_ingres">2024-01-09</field>
+            <field name="informacio">Almune de EDT</field>
+            <field name="asseguranca">Cap</field>
+          </record>
+
+          <record id="pacient3" model="hospitalams_pacient">
+            <field name="nom">manu</field>
+            <field name="cognom">gonzalez</field>
+            <field name="dni">34628189L</field>
+            <field name="genere">1</field>
+            <field name="data_naixement">2003-02-04</field>
+            <field name="nacionalitat" ref="base.ad"/>
+            <field name="ingres">False</field>
+            <field name="data_ingres">2023-01-09</field>
+            <field name="informacio">Almune de EDT</field>
+            <field name="asseguranca">Cap</field>
+          </record>
+
+    </data>
+</odoo>

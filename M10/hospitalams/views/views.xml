@@ -23,6 +23,8 @@
         </search>
       </field>
     </record>
+    
+    
 
 
     <!-- actions opening views on models -->
@@ -52,10 +54,10 @@
 
     <!-- Top menu item -->
     <menuitem name="hospitalams" id="hospitalams.menu_root"/>
-    
-    <!-- menu categories -->
-    <menuitem name="Gestió de Pacients" id="hospitalams.pacients" parent="hospitalams.menu_root"/>
-    <menuitem name="Llista de Pacients" id="hospitalams.llista_pacients" parent="hospitalams.pacients" action="hospitalams.action_window"/>
+      <!-- menu categories -->
+      <menuitem name="Gestió de Pacients" id="hospitalams.pacients" parent="hospitalams.menu_root"/>
+      <menuitem name="Llista de Pacients" id="hospitalams.llista_pacients" parent="hospitalams.pacients" action="hospitalams.action_window"/>
+
 <!--
     <menuitem name="Menu 1" id="hospitalams.menu_1" parent="hospitalams.menu_root"/>
     <menuitem name="Menu 2" id="hospitalams.menu_2" parent="hospitalams.menu_root"/>
