@@ -1,7 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+          <!-- Especialitats -->
 
+          <record id="esp1" model="hospitalams_especialitat">
+            <field name="nom">Pediatria</field>
+            <field name="edifici">A</field>                                 
+          </record>
+          
+          <record id="esp2" model="hospitalams_especialitat">
+            <field name="nom">oncologia</field>
+            <field name="edifici">B</field>              
+          </record>
+
+          <record id="esp3" model="hospitalams_especialitat">
+            <field name="nom">psiquiatria</field>
+            <field name="edifici">C</field>         
+          </record>
+          
+          <record id="esp4" model="hospitalams_especialitat">
+            <field name="nom">cardiologia</field>
+            <field name="edifici">D</field>                      
+          </record>
+
+          <record id="esp5" model="hospitalams_especialitat">
+            <field name="nom">urgències</field>
+            <field name="edifici">E</field>    
+          </record>          
+
+          <!-- Metges -->
+          <record id="metge1" model="hospitalams_metge">
+            <field name="nom">Ruben</field>
+            <field name="cognom">Lopez</field>
+            <field name="dni">29636507L</field>
+            <field name="genere">2</field>
+            <field name="adreca">Av. Martin 47</field>
+            <field name="anys_experiencia">20</field> 
+            <field name="especialitat_id" ref="esp5"/>                                  
+          </record>
+
+          <record id="metge2" model="hospitalams_metge">
+            <field name="nom">David</field>
+            <field name="cognom">Suarez</field>
+            <field name="dni">296367907L</field>
+            <field name="genere">1</field>
+            <field name="adreca">Av. Colomer 80</field>
+            <field name="anys_experiencia">44</field>         
+            <field name="especialitat_id" ref="esp2"/>                                  
+          </record>
+
+          <record id="metge3" model="hospitalams_metge">
+            <field name="nom">Lucia</field>
+            <field name="cognom">Garrido</field>
+            <field name="dni">21636507S</field>
+            <field name="genere">2</field>            
+            <field name="adreca">Carrer Federico 453</field>
+            <field name="anys_experiencia">10</field>  
+            <field name="especialitat_id" ref="esp1"/>                                             
+          </record>
+
+          <!-- Proves -->
+
+          <record id="prova1" model="hospitalams_prova">
+            <field name="nom">Prova 1</field>
+            <field name="codi">1</field>
+            <field name="data_prova">2012-11-03</field>
+            <field name="resultats">Apte</field>
+          </record>
+          
+          <record id="prova2" model="hospitalams_prova">
+            <field name="nom">Prova 2</field>
+            <field name="codi">2</field>
+            <field name="data_prova">2020-11-03</field>
+            <field name="resultats">No apte</field>
+          </record>
+          
+          <record id="prova3" model="hospitalams_prova">
+            <field name="nom">Prova 3</field>
+            <field name="codi">3</field>
+            <field name="data_prova">2015-11-03</field>
+            <field name="resultats">Apte</field>
+          </record>
+
+          <!-- Pacients -->
           <record id="pacient1" model="hospitalams_pacient">
             <field name="nom">alex</field>
             <field name="cognom">Suarez</field>
@@ -13,6 +94,8 @@
             <field name="data_ingres">2023-04-09</field>
             <field name="informacio">Almune de EDT</field>
             <field name="asseguranca">Cap</field>
+            <field name="prova_ids" eval="[(4, prova1)]"/>
+            <field name="doctor_id" eval="[(4, metge1)]"/>
           </record>
 
           <record id="pacient2" model="hospitalams_pacient">
@@ -26,6 +109,8 @@
             <field name="data_ingres">2024-01-09</field>
             <field name="informacio">Almune de EDT</field>
             <field name="asseguranca">Cap</field>
+            <field name="prova_ids" eval="[(4, prova2)]"/>
+            <field name="doctor_id" eval="[(4, metge2)]"/>
           </record>
 
           <record id="pacient3" model="hospitalams_pacient">
@@ -39,6 +124,8 @@
             <field name="data_ingres">2023-01-09</field>
             <field name="informacio">Almune de EDT</field>
             <field name="asseguranca">Cap</field>
+            <field name="prova_ids" eval="[(4, prova3)]"/>
+            <field name="doctor_id" eval="[(4, metge3)]"/>
           </record>
 
     </data>

@@ -13,7 +13,7 @@
     'author': "Test",
     'website': "https://www.yourcompany.com",
     'assets': {
-        'logo': ['./static/description/hospital.png']
+        'logo': ['./static/description/icon.png']
     },
 
     # Categories can be used to filter modules in modules listing

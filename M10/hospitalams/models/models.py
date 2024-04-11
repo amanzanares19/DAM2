@@ -21,6 +21,8 @@ class pacient(models.Model):
     
     _name = 'hospitalams_pacient'
     _description = 'Objecte pacients'
+    _order = "data_ingres"
+    _rec_name = "nom"
     
     nom = fields.Char(required = True, help="Escribe tu nombre", store = True)
     cognom = fields.Char(required = True, help="Escribe tu apellido", store = True)
@@ -33,20 +35,28 @@ class pacient(models.Model):
     informacio = fields.Text(help="Escribe tu informacion", store = True)
     asseguranca = fields.Char(help="Escribe tu assegurança", store = True)
     
+    prova_ids = fields.One2many('hospitalams_prova', 'pacient_id', string="proves", help="Prueba relacionada", store = True)
+    doctor_id = fields.Many2many('hospitalams_metge', 'pacient_rel', string="doctor", help="Doctor relacionado", store = True)
+    
+    
 
 class especialitat(models.Model):
     
     _name = 'hospitalams_especialitat'
     _description = 'Objecte especialitat'
+    _order = "nom"
+    _rec_name = "nom"
     
     nom = fields.Char(required = True, help="Escribe el nombre de la especialidad", store = True)
     edifici = fields.Char(required = True, help="Escribe el nombre del edificio", store = True)
-    metge_id = fields.One2many('hospitalams_metge', 'dni', string="metge", help="Medico relacionado", store = True)
+    metge_ids = fields.One2many('hospitalams_metge', 'dni', string="metge", help="Medico relacionado", store = True)
 
 class metge(models.Model):
     
     _name = 'hospitalams_metge'
     _description = 'Objecte metges'
+    _order = "nom"
+    _rec_name = "nom"
     
     nom = fields.Char(required = True, help="Escribe tu nombre", store = True)
     cognom = fields.Char(required = True, help="Escribe tu apellido", store = True)
@@ -63,15 +73,15 @@ class prova(models.Model):
     
     _name = 'hospitalams_prova'
     _description = 'Objecte prova'
+    _order = "data_prova"
+    _rec_name = "codi"
     
-    nom = fields.Char(required = True, help="Escribe tu nombre", store = True)
+    nom = fields.Char(required = True, help="Escribe el nombre de la prueba", store = True)
     codi = fields.Selection([('1', 'A'), ('2', 'B'), ('3', 'C') ], required = True, help="Escribe tu apellido", store = True)
-    data_prova = fields.Date(help="Escribe tu fecha de prueba", required = True, store = True, default=fields.Date.today)
+    data_prova = fields.Date(help="Escribe la fecha de prueba", required = True, store = True, default=fields.Date.today)
     resultats = fields.Text(help="Escribe los resultados de la prueba", store = True)
     
     pacient_id = fields.Many2one('hospitalams_pacient', string="pacient", help="Paciente relacionado", store = True)
-    prova_id = fields.One2many('hospitalams_prova', 'nom', string="prova", help="Prueba relacionada", store = True)
-    doctor_id = fields.Many2many('hospitalams_metge', 'dni', string="doctor", help="Doctor relacionado", store = True)
     
     
     
