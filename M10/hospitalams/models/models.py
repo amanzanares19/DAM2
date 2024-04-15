@@ -33,7 +33,7 @@ class pacient(models.Model):
     ingres = fields.Boolean(required = True, help="Escribe tu ingreso", store = True)
     data_ingres = fields.Date(help="Escribe tu fecha de ingreso", store = True, default=fields.Date.today)
     informacio = fields.Text(help="Escribe tu informacion", store = True)
-    asseguranca = fields.Char(help="Escribe tu assegurança", store = True)
+    asseguranca = fields.Char(help="Escribe tu assegurança", store = True)    
     
     prova_ids = fields.One2many('hospitalams_prova', 'pacient_id', string="proves", help="Prueba relacionada", store = True)
     doctor_id = fields.Many2many('hospitalams_metge', 'pacient_rel', string="doctor", help="Doctor relacionado", store = True)
@@ -82,6 +82,14 @@ class prova(models.Model):
     resultats = fields.Text(help="Escribe los resultados de la prueba", store = True)
     
     pacient_id = fields.Many2one('hospitalams_pacient', string="pacient", help="Paciente relacionado", store = True)
+    
+class visita(models.Model):
+    __name = 'hostpitalams_visita'
+    __description = 'Objecte Visita'
+    
+    _order = "data_visita"
+    data_visita = fields.Date(help="Escribe la fecha de visita", required = True, store = True, default=fields.Date.today)
+    pes = fields.Float(required = True, help="Calcule el peso actual", store = True)
     
     
     
