@@ -2,4 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hospitalams_pacients,hospitalams_pacient,model_hospitalams_pacient,base.group_user,1,1,1,1
 access_hospitalams_metges,hospitalams_metge,model_hospitalams_metge,base.group_user,1,1,1,1
 access_hospitalams_proves,hospitalams_prova,model_hospitalams_prova,base.group_user,1,1,1,1
+access_hospitalams_visites,hospitalams_visita,model_hospitalams_visita,base.group_user,1,1,1,1
 access_hospitalams_especialitats,hospitalams_especialitat,model_hospitalams_especialitat,base.group_user,1,1,1,1

@@ -2,6 +2,8 @@
 
 from odoo import models, fields, api
 
+from datetime import datetime, timedelta
+
 
 # class hospitalams(models.Model):
 #     _name = 'hospitalams.hospitalams'
@@ -34,9 +36,20 @@ class pacient(models.Model):
     data_ingres = fields.Date(help="Escribe tu fecha de ingreso", store = True, default=fields.Date.today)
     informacio = fields.Text(help="Escribe tu informacion", store = True)
     asseguranca = fields.Char(help="Escribe tu assegurança", store = True)    
+    edat = fields.Integer(compute="_calcular_edat", store=True, readonly = True)
+    active = fields.Boolean(default = True, store = True)
     
+    visita_ids = fields.Many2many('hospitalams_visita', 'pacient', string="pes", help="Peso relacionado", store = True)
     prova_ids = fields.One2many('hospitalams_prova', 'pacient_id', string="proves", help="Prueba relacionada", store = True)
     doctor_id = fields.Many2many('hospitalams_metge', 'pacient_rel', string="doctor", help="Doctor relacionado", store = True)
+    
+    @api.depends("data_naixement")
+    def _calcular_edat(self):
+        for record in self:            
+            date = record.data_naixement
+            record.edat = datetime.now().year - date.year
+            if date.month > datetime.now().month or (date.month == datetime.now().month and date.day > datetime.now().day):
+                record.edat = record.edat - 1
     
     
 
@@ -66,6 +79,7 @@ class metge(models.Model):
     anys_experiencia = fields.Integer(help="Escribe los años de experiencia", store = True)
     especialitat_id = fields.Many2one('hospitalams_especialitat', string="especialitat", help="Especialidad", store = True)
     pacient_rel = fields.Many2many('hospitalams_pacient', string="pacient", help="Paciente relacionado", store = True)
+    active = fields.Boolean(default = True, store = True)
     
     edifici_visita = fields.Char(string="Edifici_visita", related="especialitat_id.edifici", store = True)
     
@@ -78,19 +92,27 @@ class prova(models.Model):
     
     nom = fields.Char(required = True, help="Escribe el nombre de la prueba", store = True)
     codi = fields.Selection([('1', 'A'), ('2', 'B'), ('3', 'C') ], required = True, help="Escribe tu apellido", store = True)
-    data_prova = fields.Date(help="Escribe la fecha de prueba", required = True, store = True, default=fields.Date.today)
-    resultats = fields.Text(help="Escribe los resultados de la prueba", store = True)
     
-    pacient_id = fields.Many2one('hospitalams_pacient', string="pacient", help="Paciente relacionado", store = True)
+    @api.model
+    def _calcular_data(self):
+        date = datetime.now() + timedelta(days=7)
+        return date
+    
+    data_prova = fields.Date(help="Escribe la fecha de prueba", required = True, store = True, default=_calcular_data)
+    resultats = fields.Text(help="Escribe los resultados de la prueba", store = True, copy=False)
+    
+    pacient_id = fields.Many2one('hospitalams_pacient', string="pacient", help="Paciente relacionado", store = True, copy=False)
+        
     
 class visita(models.Model):
-    __name = 'hostpitalams_visita'
-    __description = 'Objecte Visita'
+    _name = 'hospitalams_visita'
+    _description = 'Objecte Visita'
+    _order = "pes"
+    _rec_name = "pes"
     
-    _order = "data_visita"
     data_visita = fields.Date(help="Escribe la fecha de visita", required = True, store = True, default=fields.Date.today)
-    pes = fields.Float(required = True, help="Calcule el peso actual", store = True)
+    pes = fields.Float(required = True, help="Calcule el peso actual", store = True)    
     
-    
+    pacient = fields.Many2many('hospitalams_pacient', string="pacient", help="Paciente relacionado", store = True)
     
     

@@ -111,6 +111,7 @@
             <field name="asseguranca">Cap</field>
             <field name="prova_ids" eval="[(4, prova2)]"/>
             <field name="doctor_id" eval="[(4, metge2)]"/>
+            <field name="active">False</field>            
           </record>
 
           <record id="pacient3" model="hospitalams_pacient">
