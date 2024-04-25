@@ -96,6 +96,7 @@
             <field name="asseguranca">Cap</field>
             <field name="prova_ids" eval="[(4, prova1)]"/>
             <field name="doctor_id" eval="[(4, metge1)]"/>
+            <field name="state">3</field> 
           </record>
 
           <record id="pacient2" model="hospitalams_pacient">
@@ -111,7 +112,8 @@
             <field name="asseguranca">Cap</field>
             <field name="prova_ids" eval="[(4, prova2)]"/>
             <field name="doctor_id" eval="[(4, metge2)]"/>
-            <field name="active">False</field>            
+            <field name="active">False</field> 
+            <field name="state">3</field> 
           </record>
 
           <record id="pacient3" model="hospitalams_pacient">
@@ -127,6 +129,7 @@
             <field name="asseguranca">Cap</field>
             <field name="prova_ids" eval="[(4, prova3)]"/>
             <field name="doctor_id" eval="[(4, metge3)]"/>
+            <field name="state">1</field> 
           </record>
 
     </data>

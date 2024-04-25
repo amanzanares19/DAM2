@@ -20,7 +20,61 @@
         <search>
           <field name="nom"/>
           <field name="dni"/>
+          <filter string="ingressats" domain="['|',('state','=','5'),('state','=','3')]"/>
         </search>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hospitalams.form_pacients"> 
+      <field name="name">hospitalams pacients form</field>
+      <field name="model">hospitalams_pacient</field>
+      <field name="arch" type="xml">
+        <form>
+          
+          <sheet>
+
+            <div>
+              <h1>              
+                <field name="nom"/>
+              </h1>
+              <h2>
+                <field name="cognom"/>
+              </h2>
+            </div>
+
+            <group>
+              <group>
+                <field name="dni"/>
+                <field name="genere"/>
+                <field name="edat"/>
+              </group>
+              <group>
+                <field name="data_naixement"/>
+                <field name="nacionalitat"/>
+                <field name="asseguranca"/>
+              </group>
+            </group>
+
+            <notebook>
+              
+              <page string="Situació">
+                <group>                  
+                  <field name="ingres"/>                                              
+                  <field name="data_ingres"/>                               
+                  <field name="informacio"/>
+                </group>
+              </page>
+              
+              <page string="Historial">
+                  <label for="doctor_id"/>
+                  <field name="doctor_id"/>
+
+                  <label for="prova_ids"/>
+                  <field name="prova_ids"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
       </field>
     </record>
 

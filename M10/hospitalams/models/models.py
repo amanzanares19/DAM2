@@ -38,6 +38,7 @@ class pacient(models.Model):
     asseguranca = fields.Char(help="Escribe tu assegurança", store = True)    
     edat = fields.Integer(compute="_calcular_edat", store=True, readonly = True)
     active = fields.Boolean(default = True, store = True)
+    state = fields.Selection([('1','Sa'), ('2', 'Malalt'), ('3', 'Malalt ingressat'), ('4', 'Malalt crònic'), ('5', 'Malalt crònic ingressat')], required = True, copy=False, default='1')
     
     visita_ids = fields.Many2many('hospitalams_visita', 'pacient', string="pes", help="Peso relacionado", store = True)
     prova_ids = fields.One2many('hospitalams_prova', 'pacient_id', string="proves", help="Prueba relacionada", store = True)
@@ -47,9 +48,10 @@ class pacient(models.Model):
     def _calcular_edat(self):
         for record in self:            
             date = record.data_naixement
-            record.edat = datetime.now().year - date.year
-            if date.month > datetime.now().month or (date.month == datetime.now().month and date.day > datetime.now().day):
-                record.edat = record.edat - 1
+            if date != False:                            
+                record.edat = datetime.now().year - date.year        
+                if date.month > datetime.now().month or (date.month == datetime.now().month and date.day > datetime.now().day):
+                    record.edat = record.edat - 1
     
     
 
