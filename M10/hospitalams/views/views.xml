@@ -1,0 +1,229 @@
+<odoo>
+  <data>
+    <!-- Lista de pacients -->
+    <record model="ir.ui.view" id="hospitalams.list_pacients">
+      <field name="name">hospitalams pacients list</field>
+      <field name="model">hospitalams_pacient</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom"/>
+          <field name="cognom"/>
+          <field name="data_ingres"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hospitalams.search_pacients">
+      <field name="name">hospitalams pacients search</field>
+      <field name="model">hospitalams_pacient</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nom"/>
+          <field name="dni"/>
+          <filter string="ingressats" domain="['|',('state','=','5'),('state','=','3')]"/>
+        </search>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hospitalams.form_pacients"> 
+      <field name="name">hospitalams pacients form</field>
+      <field name="model">hospitalams_pacient</field>
+      <field name="arch" type="xml">
+        <form>
+          
+          <sheet>
+
+            <div>
+              <h1>              
+                <field name="nom"/>
+              </h1>
+              <h2>
+                <field name="cognom"/>
+              </h2>
+            </div>
+
+            <group>
+              <group>
+                <field name="dni"/>
+                <field name="genere"/>
+                <field name="edat"/>
+              </group>
+              <group>
+                <field name="data_naixement"/>
+                <field name="nacionalitat"/>
+                <field name="asseguranca"/>
+              </group>
+            </group>
+
+            <notebook>
+              
+              <page string="Situació">
+                <group>                  
+                  <field name="ingres"/>                                              
+                  <field name="data_ingres"/>                               
+                  <field name="informacio"/>
+                </group>
+              </page>
+              
+              <page string="Historial">
+                  <label for="doctor_id"/>
+                  <field name="doctor_id"/>
+
+                  <label for="prova_ids"/>
+                  <field name="prova_ids"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Lista de metges -->
+    <record model="ir.ui.view" id="hospitalams.list_metges">
+      <field name="name">hospitalams metges list</field>
+      <field name="model">hospitalams_metge</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom"/>
+          <field name="anys_experiencia"/>
+          <field name="especialitat_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hospitalams.search_metges">
+      <field name="name">hospitalams metges search</field>
+      <field name="model">hospitalams_metge</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nom"/>
+          <field name="especialitat_id"/>
+        </search>
+      </field>
+    </record>
+
+    <!-- Lista de proves -->
+    <record model="ir.ui.view" id="hospitalams.list_proves">
+      <field name="name">hospitalams proves list</field>
+      <field name="model">hospitalams_prova</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom"/>
+          <field name="resultats"/>
+          <field name="data_prova"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hospitalams.search_proves">
+      <field name="name">hospitalams proves search</field>
+      <field name="model">hospitalams_prova</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nom"/>
+          <field name="codi"/>
+        </search>
+      </field>
+    </record>
+
+    <!-- Lista de especialitats -->
+    <record model="ir.ui.view" id="hospitalams.list_especialitat">
+      <field name="name">hospitalams especialitat list</field>
+      <field name="model">hospitalams_especialitat</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom"/>
+          <field name="edifici"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hospitalams.search_especialitat">
+      <field name="name">hospitalams especialitat search</field>
+      <field name="model">hospitalams_especialitat</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nom"/>
+          <field name="edifici"/>
+        </search>
+      </field>
+    </record>
+    
+    
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="hospitalams.action_window_pacient">
+      <field name="name">Pacients</field>
+      <field name="res_model">hospitalams_pacient</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hospitalams.action_window_metge">
+      <field name="name">Metges</field>
+      <field name="res_model">hospitalams_metge</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hospitalams.action_window_prova">
+      <field name="name">Proves</field>
+      <field name="res_model">hospitalams_prova</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hospitalams.action_window_especialitat">
+      <field name="name">Especialitats</field>
+      <field name="res_model">hospitalams_especialitat</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <!-- <record model="ir.actions.server" id="hospitalams.action_server">
+      <field name="name">hospitalams server</field>
+      <field name="model_id" ref="model_hospitalams_hospitalams"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record> -->
+
+
+    <!-- Top menu item -->
+    <menuitem name="hospitalams" id="hospitalams.menu_root"/>
+      <!-- menu categories -->
+      <!-- Pacients -->
+      <menuitem name="Gestió de Pacients" id="hospitalams.pacients" parent="hospitalams.menu_root"/>
+      <menuitem name="Llista de Pacients" id="hospitalams.llista_pacients" parent="hospitalams.pacients" action="hospitalams.action_window_pacient"/>
+
+      <!-- Metges -->
+      <menuitem name="Gestió de Metges" id="hospitalams.metges" parent="hospitalams.menu_root"/>
+      <menuitem name="Llista de Metges" id="hospitalams.llista_metges" parent="hospitalams.metges" action="hospitalams.action_window_metge"/>
+
+      <!-- Metges -->
+      <menuitem name="Gestió de Proves" id="hospitalams.proves" parent="hospitalams.menu_root"/>
+      <menuitem name="Llista de Proves" id="hospitalams.llista_proves" parent="hospitalams.proves" action="hospitalams.action_window_prova"/>
+
+      <!-- Especialitats -->
+      <menuitem name="Gestió de Especialitats" id="hospitalams.especialitats" parent="hospitalams.menu_root"/>
+      <menuitem name="Llista de Especialitats" id="hospitalams.llista_especialitats" parent="hospitalams.especialitats" action="hospitalams.action_window_especialitat"/>
+
+<!--
+    <menuitem name="Menu 1" id="hospitalams.menu_1" parent="hospitalams.menu_root"/>
+    <menuitem name="Menu 2" id="hospitalams.menu_2" parent="hospitalams.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="hospitalams.menu_1_list" parent="hospitalams.menu_1"
+              action="hospitalams.action_window"/>
+    <menuitem name="Server to list" id="hospitalams" parent="hospitalams.menu_2"
+              action="hospitalams.action_server"/>
+-->
+  </data>
+</odoo>
