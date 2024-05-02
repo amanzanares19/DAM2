@@ -64,7 +64,7 @@ class especialitat(models.Model):
     
     nom = fields.Char(required = True, help="Escribe el nombre de la especialidad", store = True)
     edifici = fields.Char(required = True, help="Escribe el nombre del edificio", store = True)
-    metge_ids = fields.One2many('hospitalams_metge', 'dni', string="metge", help="Medico relacionado", store = True)
+    metge_ids = fields.Many2many('hospitalams_metge', 'especialitat_rel', string="metge", help="Medico relacionado", store = True)
 
 class metge(models.Model):
     
@@ -79,11 +79,18 @@ class metge(models.Model):
     genere = fields.Selection([('1', 'Masculino'), ('2', 'Femenino')], help="Escribe tu genero", store = True)
     adreca = fields.Char(help="Escribe tu direccion", store = True)
     anys_experiencia = fields.Integer(help="Escribe los años de experiencia", store = True)
-    especialitat_id = fields.Many2one('hospitalams_especialitat', string="especialitat", help="Especialidad", store = True)
+    especialitat_rel = fields.Many2many('hospitalams_especialitat', string="especialitats", help="Especialidad", store = True)
     pacient_rel = fields.Many2many('hospitalams_pacient', string="pacient", help="Paciente relacionado", store = True)
     active = fields.Boolean(default = True, store = True)
     
-    edifici_visita = fields.Char(string="Edifici_visita", related="especialitat_id.edifici", store = True)
+    edifici_visita = fields.Char(string="Edifici_visita", compute="_calculate_edifici", store = True)
+    
+    @api.depends("especialitat_rel")
+    def _calculate_edifici(self):
+        for record in self:
+            record.edifici_visita = record.especialitat_rel[0].edifici
+            
+        
     
 class prova(models.Model):
     

@@ -36,7 +36,7 @@
             <field name="genere">2</field>
             <field name="adreca">Av. Martin 47</field>
             <field name="anys_experiencia">20</field> 
-            <field name="especialitat_id" ref="esp5"/>                                  
+            <field name="especialitat_rel" eval="[(4, esp1)]"/>                                 
           </record>
 
           <record id="metge2" model="hospitalams_metge">
@@ -46,7 +46,7 @@
             <field name="genere">1</field>
             <field name="adreca">Av. Colomer 80</field>
             <field name="anys_experiencia">44</field>         
-            <field name="especialitat_id" ref="esp2"/>                                  
+            <field name="especialitat_rel" eval="[(4, esp3)]"/>
           </record>
 
           <record id="metge3" model="hospitalams_metge">
@@ -56,7 +56,7 @@
             <field name="genere">2</field>            
             <field name="adreca">Carrer Federico 453</field>
             <field name="anys_experiencia">10</field>  
-            <field name="especialitat_id" ref="esp1"/>                                             
+            <field name="especialitat_rel" eval="[(4, esp2)]"/>            
           </record>
 
           <!-- Proves -->
